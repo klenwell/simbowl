@@ -5,9 +5,9 @@ export default class Sumobo {
   }
 
   run() {
-    const h1 = document.createElement("h1");
-    const h1Text = document.createTextNode("Sumobo");
-    h1.appendChild(h1Test);
-    this.container.appendChild(h1);
+    const p = document.createElement("p");
+    const pText = document.createTextNode("Sumobo will run here.");
+    p.appendChild(pText);
+    this.container.appendChild(p);
   }
 }
