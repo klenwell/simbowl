@@ -10,7 +10,7 @@ import Sumobo from '../js/Sumobo';
 
 describe('Sumobo', function() {
   beforeEach(function() {
-    this.sinon.stub(console, 'log');
+    this.sinon.spy(console, 'log');
   });
 
   describe('instantiates class', function() {

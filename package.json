@@ -1,6 +1,6 @@
 {
   "name": "sumobo",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a kind of game of a sort of sport",
   "main": "index.js",
   "scripts": {
