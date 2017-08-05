@@ -1,5 +1,4 @@
 import Sumobo from './Sumobo';
 
-const container = document.getElementById('sumobo');
-const sumobo = new Sumobo(container);
-sumobo.run();
+// Based on https://stackoverflow.com/q/34357489/1093087.
+window.Sumobo = Sumobo;

@@ -1,13 +1,16 @@
-export default class Sumobo {
-  constructor(container) {
-    this.container = container;
-    console.log("Sumobo initialized.");
-  }
+var Sumobo = (function() {
+  // Private variables and functions
+  var $container = null;
 
-  run() {
-    const p = document.createElement("p");
-    const pText = document.createTextNode("Sumobo will run here.");
-    p.appendChild(pText);
-    this.container.appendChild(p);
-  }
-}
+  var simCircles = function(containerSelector) {
+    $container = $(containerSelector);
+    console.log('TODO: Sumobo.circleSim', $container);
+  };
+
+  // Public API
+  return {
+      simCircles: simCircles
+  };
+})();
+
+module.exports = Sumobo;
