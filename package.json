@@ -7,7 +7,7 @@
     "build": "webpack",
     "babel": "babel --presets es2015 js/index.js -o build/index.bundle.js",
     "start": "http-server -p 9000",
-    "test": "mocha --compilers js:babel-core/register test/test*.js"
+    "test": "mocha --compilers js:babel-core/register $(find test -name '*.js')"
   },
   "repository": {
     "type": "git",
