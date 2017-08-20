@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,16 +73,28 @@
 "use strict";
 
 
+var _World = __webpack_require__(1);
+
+var _World2 = _interopRequireDefault(_World);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var Sumobo = function () {
   // Private variables and functions
-  var $container = null;
   var fps = 30;
   var mspf = 1000 / fps;
-  var startedAt = new Date().getTime();
   var maxRunTimeMs = 5000;
+
+  var world = null;
+  var graphics = null;
+  var $container = null;
+  var startedAt = null;
 
   var simCircles = function simCircles(containerSelector) {
     $container = $(containerSelector);
+    startedAt = new Date().getTime();
+    world = new _World2.default();
+
     console.log('TODO: Sumobo.circleSim', $container);
     console.log(window, document);
     main();
@@ -96,9 +108,8 @@ var Sumobo = function () {
 
   var simLoop = function simLoop() {
     var runtime = msRunTime();
-    console.debug('simLoop');
-    //world.update();
-    //world.draw();
+    world.update();
+    //graphics.draw(world);
 
     if (maxRunTimeMs && runtime > maxRunTimeMs) {
       console.debug('stop simLoop', msRunTime());
@@ -130,12 +141,50 @@ var Sumobo = function () {
   return {
     simCircles: simCircles
   };
-}();
+}(); /*
+      * Sumobo Module
+      * Based on https://learn.jquery.com/code-organization/concepts/
+      */
+
 
 module.exports = Sumobo;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/*
+ * World Class
+ * Based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+ */
+var World = function () {
+  function World() {
+    _classCallCheck(this, World);
+
+    return 'TODO';
+  }
+
+  _createClass(World, [{
+    key: 'update',
+    value: function update() {
+      console.debug('TODO');
+    }
+  }]);
+
+  return World;
+}();
+
+module.exports = World;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

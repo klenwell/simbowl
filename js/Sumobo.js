@@ -1,13 +1,25 @@
+/*
+ * Sumobo Module
+ * Based on https://learn.jquery.com/code-organization/concepts/
+ */
+import World from './World';
+
 var Sumobo = (function() {
   // Private variables and functions
-  var $container = null;
   var fps = 30;
   var mspf = 1000 / fps;
-  var startedAt = new Date().getTime();
   var maxRunTimeMs = 5000;
+
+  var world = null;
+  var graphics = null;
+  var $container = null;
+  var startedAt = null;
 
   var simCircles = function(containerSelector) {
     $container = $(containerSelector);
+    startedAt = new Date().getTime();
+    world = new World();
+
     console.log('TODO: Sumobo.circleSim', $container);
     console.log(window, document);
     main();
@@ -21,9 +33,8 @@ var Sumobo = (function() {
 
   var simLoop = function() {
     var runtime = msRunTime();
-    console.debug('simLoop');
-    //world.update();
-    //world.draw();
+    world.update();
+    //graphics.draw(world);
 
     if ( maxRunTimeMs && runtime > maxRunTimeMs ) {
       console.debug('stop simLoop', msRunTime());
