@@ -18,5 +18,10 @@ module.exports = {
         loader: "babel-loader"
       }
     ]
+  },
+  devServer: {
+    publicPath: '/build/',
+    compress: true,
+    port: 9000
   }
 }

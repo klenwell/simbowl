@@ -33,7 +33,7 @@ To run the local server:
 
     npm start
 
-This should also launch the watch option with `webpack-dev-server`, but this appears to [to be broken](https://github.com/webpack/webpack-dev-server/issues/875). So to see changes, you'll need to run build:
+This should also launch the watch option with `webpack-dev-server` which will automatically rebuild the application javascript. To manually run the webpack build:
 
     npm run build
 
