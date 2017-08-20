@@ -34,7 +34,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="/build/sumobo.bundle.js"></script>
+
+    <!-- Build puts files in the build directory. webpack-dev-server puts them here -->
+    <script src="/sumobo.bundle.js"></script>
     <script>
       Sumobo.simCircles('#sumobo');
     </script>

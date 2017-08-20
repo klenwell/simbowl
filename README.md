@@ -2,6 +2,7 @@
 
 Sumobo is an open source game of sport.
 
+
 ## Installation
 
 1. Clone repository and install dependencies:
@@ -32,7 +33,7 @@ To run the local server:
 
     npm start
 
-To see changes, you'll need to run build:
+This should also launch the watch option with `webpack-dev-server`, but this appears to [to be broken](https://github.com/webpack/webpack-dev-server/issues/875). So to see changes, you'll need to run build:
 
     npm run build
 

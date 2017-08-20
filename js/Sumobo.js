@@ -8,7 +8,7 @@ var Sumobo = (function() {
   // Private variables and functions
   var fps = 30;
   var mspf = 1000 / fps;
-  var maxRunTimeMs = 5000;
+  var maxRunTimeMs = 2000;
 
   var world = null;
   var graphics = null;
