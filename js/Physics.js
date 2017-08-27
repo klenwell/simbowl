@@ -48,7 +48,7 @@ var Physics = (function() {
     ball2.setVelocity(v2.x, v2.y);
   };
 
-  bounceBallOffWorld: function(ball, world) {
+  var bounceBallOffWorld = function(ball, world) {
     // translate ball back inside world
     var contactPt = findContactPoint(world, ball);
     ball.setPoint(contactPt.x, contactPt.y);
@@ -58,12 +58,12 @@ var Physics = (function() {
     ball.setVelocity(newBallVel.x, newBallVel.y);
   };
 
-  polarToVector: function(distance, angle) {
+  var polarToVector = function(distance, angle) {
     var radians = angle * (Math.PI / 180);
     return new Vec2d(distance * Math.cos(radians), distance * Math.sin(radians));
   };
 
-  findContactPoint: function(world, ball) {
+  var findContactPoint = function(world, ball) {
     // see http://gamedev.stackexchange.com/a/29658
     var A = world.point();
     var B = ball.lastPoint();
@@ -98,7 +98,7 @@ var Physics = (function() {
     return D;
   };
 
-  reflectBall: function(world, ball) {
+  var reflectBall = function(world, ball) {
     // see http://stackoverflow.com/a/573206/1093087
     var worldPt = world.point();
     var ballPt = ball.point();
@@ -130,4 +130,60 @@ var Physics = (function() {
   };
 })();
 
-module.exports = Physics;
+class Vec2d {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  get length() {
+    return Math.sqrt((this.x * this.x) + (this.y * this.y));
+  }
+
+  setLength(newLength) {
+    var oldLength = this.length;
+    this.x *= newLength/oldLength;
+    this.y *= newLength/oldLength;
+    return this;
+  }
+
+  add(v2) {
+    return new Vec2d(this.x + v2.x, this.y + v2.y);
+  }
+
+  subtract(v2) {
+    return new Vec2d(this.x - v2.x, this.y - v2.y);
+  }
+
+  multiply(v2) {
+    if ( ! v2.length ) {
+      // v2 is a scalar
+      return new Vec2d(this.x * v2, this.y * v2);
+    }
+    else {
+      return new Vec2d(this.x * v2.x, this.y * v2.y);
+    }
+  }
+
+  distance(v2) {
+    return Math.sqrt(Math.pow(this.x - v2.x, 2) + Math.pow(this.y - v2.y, 2));
+  }
+
+  dot(v2) {
+    return (this.x * v2.x) + (this.y * v2.y);
+  }
+
+  normalized() {
+    var length = this.get_length();
+
+    if ( length != 0 ) {
+      return new Vec2d(this.x / length, this.y / length);
+    }
+    else {
+      return new Vec2d(this.x, this.y);
+    }
+  }
+}
+
+module.exports.Physics = Physics;
+module.exports.Vec2d = Vec2d;
