@@ -7,6 +7,10 @@ class Circle {
     this.radius = radius;
   }
 
+  get r() {
+    return this.radius;
+  }
+
   get area() {
     return this.calcArea();
   }
