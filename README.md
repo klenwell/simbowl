@@ -1,14 +1,14 @@
-# Sumobo
+# SimBowl
 
-Sumobo is an open source game of sport.
+Visualize simulations in Javascript.
 
 
 ## Installation
 
 1. Clone repository and install dependencies:
 
-    git clone git@github.com:klenwell/sumobo.git
-    cd sumobo && npm install
+    git clone git@github.com:klenwell/simbowl.git
+    cd simbowl && npm install
 
 2. Run tests:
 
@@ -21,7 +21,7 @@ Sumobo is an open source game of sport.
 
 ## Development
 
-Sumobo is developed using [Webpack](https://webpack.js.org/) to build and bundle assets. It includes [Babel](https://babeljs.io/) to support next-generation Javascript.
+SimBowl is developed using [Webpack](https://webpack.js.org/) to build and bundle assets. It includes [Babel](https://babeljs.io/) to support next-generation Javascript.
 
 To install:
 
