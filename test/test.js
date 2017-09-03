@@ -6,24 +6,15 @@
 require('mocha-sinon');
 var expects = require('expect.js');
 
-import Sumobo from '../js/Sumobo';
-
-describe('Sumobo', function() {
+describe('Test Examples', function() {
   beforeEach(function() {
-    this.sinon.stub(console, 'log');
+    this.sinon.spy(console, 'log');
   });
 
-  describe('instantiates class', function() {
-    const mockContainer = {};
-    const sumobo = new Sumobo(mockContainer)
+  afterEach(function () {
+  })
 
-    it('expects container to be set', function() {
-      expects(console.log.calledOnce).to.be.true;
-      expects(sumobo.container).to.equal(mockContainer);
-    });
-  });
-
-  describe('testing', function() {
+  describe('test basic expectations', function() {
     it('will support expect.js', function() {
       expects(1).to.be(1);
       expects(NaN).not.to.equal(NaN);
